@@ -10,29 +10,29 @@ namespace LearningWithLS.FirstSteps
             //task_0_1();
             //task_0_2();
 
-            task_1_1();
-            task_1_2();
-            task_1_3();
-            task_1_4();
-            task_1_5();
+            //task_1_1();
+            //task_1_2();
+            //task_1_3();
+            //task_1_4();
+            //task_1_5();
 
-            task_2_1();
-            task_2_2();
-            task_2_3();
-            task_2_4();
-            task_2_5();
-            task_2_6();
-            task_2_7();
-            task_2_8();
-            task_2_9();
-            task_2_10();
-            task_2_11();
-            task_2_12();
+            //task_2_1();
+            //task_2_2();
+            //task_2_3();
+            //task_2_4();
+            //task_2_5();
+            //task_2_6();
+            //task_2_7();
+            //task_2_8();
+            //task_2_9();
+            //task_2_10();
+            //task_2_11();
+            //task_2_12();
 
-            task_3_1();
-            task_3_2();
+            //task_3_1();
+            //task_3_2();
 
-            task_4_1();
+            //task_4_1();
 
         }
 
@@ -268,7 +268,11 @@ namespace LearningWithLS.FirstSteps
         /// </summary>
         static void task_2_6()
         {
+            float X = float.Parse(Console.ReadLine());
+            int N = int.Parse(Console.ReadLine());
 
+            float power = float.Pow(X,N);
+            Console.WriteLine(power);
         }
         // _2_7. 
         /// <summary>
@@ -277,7 +281,20 @@ namespace LearningWithLS.FirstSteps
         /// </summary>
         static void task_2_7()
         {
+            int N = int.Parse(Console.ReadLine());
+            int[] vals = new int[N];
+            for (int i = 0; i < N; i++)
+            {
+                vals[i] = int.Parse(Console.ReadLine());
+            }
 
+            int count = 0;
+            for (int i = 0; i < vals.Length; i++)
+            {
+                if (vals[i] > 50) count++;
+            }
+
+            Console.WriteLine(count);
         }
         // _2_8. 
         /// <summary>
@@ -286,7 +303,19 @@ namespace LearningWithLS.FirstSteps
         /// </summary>
         static void task_2_8()
         {
+            int A = int.Parse(Console.ReadLine());
+            int B = int.Parse(Console.ReadLine());
 
+            int sum  = 0;
+            int product = 1;
+            for (int i = A; i < B; i++)
+            {
+                sum += i;
+                product *= i;
+            }
+
+            Console.WriteLine(sum);
+            Console.WriteLine(product);
         }
         // _2_9. 
         /// <summary>
@@ -294,7 +323,14 @@ namespace LearningWithLS.FirstSteps
         /// </summary>
         static void task_2_9()
         {
+            int N = int.Parse(Console.ReadLine());
+            int prod = 1;
+            for (int i = 1; i < N; i++)
+            {
+                if (i % 3 == 0) prod *= i;
+            }
 
+            Console.WriteLine(prod);
         }
         // _2_10. 
         /// <summary>
@@ -303,7 +339,23 @@ namespace LearningWithLS.FirstSteps
         /// </summary>
         static void task_2_10()
         {
+            int N = int.Parse(Console.ReadLine());
+            int[] vals = new int[N];
+            for (int i = 0; i < vals.Length; i++)
+            {
+                vals[i] = int.Parse(Console.ReadLine());
+            }
 
+            int min = vals[0];
+            int max = vals[0];
+
+            for (int i = 1; i < vals.Length; i++)
+            {
+                if (min > vals[i] ) min = vals[i];
+                if (max < vals[i]) max = vals[i];
+            }
+            Console.WriteLine(min);
+            Console.WriteLine(max);
         }
         // _2_11. 
         /// <summary>
@@ -312,7 +364,25 @@ namespace LearningWithLS.FirstSteps
         /// </summary>
         static void task_2_11()
         {
+            float A = float.Parse(Console.ReadLine());
 
+            var diagonal = A;
+            // pythagorean theorem a^2 + b^2 = c^2
+            // A is in our case c
+            // in case of cube a = b
+            // rearranging it means 2a^2 = A^2
+            // to get a we get equation a = sqrt(A^2/2)
+            var sideOfCube = float.Sqrt((A*A)/ 2);
+
+            // volume is a^3
+            var volume = sideOfCube * sideOfCube * sideOfCube;
+            // surface is 6a^2
+            var surface = sideOfCube * sideOfCube * 6;
+
+
+            Console.WriteLine("Edge: " + sideOfCube);
+            Console.WriteLine("Surface: " + surface);
+            Console.WriteLine("Volume: " + volume);
         }
         // _2_12. 
         /// <summary>
@@ -321,7 +391,16 @@ namespace LearningWithLS.FirstSteps
         /// </summary>
         static void task_2_12()
         {
+            int N = int.Parse(Console.ReadLine());
+            float[] vals = new float[N];
+            float sum = 0;
+            for (int i = 0; i < vals.Length; i++)
+            {
+                sum += vals[i];
+            }
 
+            var avg = sum / vals.Length;
+            Console.WriteLine(avg);
         }
         // 3 Nested for loops
         // _3_1
@@ -330,7 +409,22 @@ namespace LearningWithLS.FirstSteps
         /// </summary>
         static void task_3_1()
         {
+            var A = int.Parse(Console.ReadLine());
+            // finding prime numbers.. hmm
+            // take sqrt (b*b is the highest value to obtain A)
+            var sqrt = float.Sqrt(A);
+            // floor it
+            sqrt = float.Floor(sqrt);
 
+            for (int i = 2; i < sqrt; i++)
+            {
+                if (sqrt % i == 0) // we found divisor other than 1 and A
+                {
+                    return;
+                }
+            }
+
+            Console.WriteLine(A + " is prime");
         }
         // _3_2
         /// <summary>
@@ -338,7 +432,23 @@ namespace LearningWithLS.FirstSteps
         /// </summary>
         static void task_3_2()
         {
+            int N = int.Parse(Console.ReadLine());
+            var sqrt = float.Sqrt(N);
+            // floor it
+            for (int i = 0; i < N; i++)
+            {
+                var candidate = float.Sqrt(i);
+                candidate = float.Floor(candidate);
+            for (int j = 2; i < candidate; i++)
+            {
+                if (sqrt %  j == 0) // we found divisor other than 1 and A
+                {
+                    continue;
+                }
+            }
 
+            Console.WriteLine(candidate);
+            }
         }
         // 4 While
         // _4_1
@@ -348,6 +458,15 @@ namespace LearningWithLS.FirstSteps
         /// </summary>
         static void task_4_1()
         {
+            List<int> vals = new();
+            int n = int.Parse(Console.ReadLine());
+            while (n != 42)
+            {
+                vals.Add(n);
+                n = int.Parse(Console.ReadLine());
+            }
+
+            Console.WriteLine(vals.Sum());
 
         }
     }
