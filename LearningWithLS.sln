@@ -35,14 +35,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "15_TaskMaster", "15_TaskMas
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "16_ThreadThriver", "16_ThreadThriver\16_ThreadThriver.csproj", "{ADF1C73C-B51A-4128-B402-728682D874E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "17_SocketSurfer", "17_SocketSurfer\17_SocketSurfer.csproj", "{D39EA164-433E-46E5-853C-66FB7ADD862A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "18_ApiArchitect", "18_ApiArchitect\18_ApiArchitect.csproj", "{51C955E8-32FF-4CE6-984B-2F296BCCAD2B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "19_MvcMaker", "19_MvcMaker\19_MvcMaker.csproj", "{7EEF430D-7DB8-47BA-B596-8811FA45FB48}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "20_EntityExplorer", "20_EntityExplorer\20_EntityExplorer.csproj", "{C53B8900-5D5E-4079-BAC8-4799FC564EB1}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
