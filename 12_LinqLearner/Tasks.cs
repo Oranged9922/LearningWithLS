@@ -33,7 +33,7 @@ public class Tasks
     public Tasks()
     {
         // Create 30 projects with random names and 5-10 employees each
-        for (int i = 0; i < 30; i++)
+        for (int i = 0; i < 100000; i++)
         {
             var project = new Project()
             {
@@ -45,7 +45,7 @@ public class Tasks
         }
 
         // Create 100 employees
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 10000; i++)
         {
             var employee = new Employee()
             {
@@ -74,12 +74,20 @@ public class Tasks
     // Get all Project Managers(PM).
     public List<Employee> GetProjectManagers()
     {
-        return null;
+        return employees.Where(e => e.Role == Role.ProjectManager).ToList();
     }
     // Get all Developers who are older than 30 and are working on a project with a Tester.
     public List<Employee> GetDevelopersOlderThan30WithTester()
     {
-        return null;
+        return employees.Where(
+            e => e.Role == Role.Developer &&
+            e.Age > 30 &&
+            projects.First(
+                p => p.EmployeeIds.Contains(e.Id))
+            .EmployeeIds.Any(
+                eId => employees.First(
+                    e => e.Id == eId).Role == Role.QA))
+            .ToList();
     }
     // Get all projects.
     public List<Project> GetProjectsForDeliveryManager()
@@ -107,10 +115,30 @@ public class Tasks
         return null;
     }
     // Group projects by the number of employees.
-    public Dictionary<int, List<Project>> GetProjectsByNumberOfEmployees()
+    public Dictionary<int, List<Project>> GetProjectsByNumberOfEmployeesLINQ()
     {
-        return null;
+        return projects.GroupBy(p => p.EmployeeIds.Count)
+                       .ToDictionary(g => g.Key, g => g.ToList());
     }
+    // Group projects by the number of employees.
+    public Dictionary<int, List<Project>> GetProjectsByNumberOfEmployeesNOTLINQ()
+    {
+        var result = new Dictionary<int, List<Project>>();
+        foreach (var project in projects)
+        {
+            result.TryGetValue(project.EmployeeIds.Count - 1, out var projects);
+            if (projects != null)
+            {
+                projects.Append(project);
+            }
+            else
+            {
+                result[project.EmployeeIds.Count] = new List<Project> { project };
+            }
+        }
+        return result;
+    }
+
     // Group employees by project.
     public Dictionary<int, List<Employee>> GetEmployeesByProject()
     {
